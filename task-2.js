@@ -5,16 +5,19 @@ const weather = prompt('Погода (clear/cloudy)')
 if(!Number.isFinite(temp)){
     throw new Error("Температура введена некорректно")
 }
-if(weather !== clear || cloudy){
+if(weather !== 'clear' && weather !== 'cloudy'){
     throw new Error("Погода введена некорректно")
 }
 let result
 
 // TODO добавить проверки погоды и температуры
-if (temp == 25 && weather === 'clear'){
+if (temp >= 25 && weather === 'clear'){
     result = 'golf'
 }
-else if (temp == 25 && weather === 'clear'){
-    result = 'golf'
+else if (temp < 25 && temp > 9 || weather === 'cloudy'){
+    result = 'bowling'
+}
+else{
+    result = 'hiking'
 }
 console.log(result)
